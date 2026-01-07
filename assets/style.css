@@ -307,3 +307,9 @@ body{
     height: 200px;
   }
 }
+
+.profile-photo {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+}
