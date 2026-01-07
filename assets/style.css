@@ -262,3 +262,16 @@ body{
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+
+/* People page headshots */
+.page.people .person-image{
+  width: 200px;
+  height: 200px;
+}
+
+.page.people .person-image img{
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
