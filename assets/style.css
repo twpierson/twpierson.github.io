@@ -312,7 +312,12 @@ body{
    FIXED: People-only overrides (scoped so research page is unaffected)
    ------------------------------------------------------------------ */
 
-/* Only apply the 2-col grid helper on the people page grids */
+/* ------------------------------
+   People-only layout overrides
+   (do NOT affect research rows)
+   ------------------------------ */
+
+/* helper for 2-up grids on people page */
 .people-section .people-grid-2{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -325,7 +330,7 @@ body{
   }
 }
 
-/* Only style person cards (side-by-side) inside people sections */
+/* side-by-side headshot + text for people cards ONLY */
 .people-section .person-figure{
   display: flex;
   gap: 1rem;
@@ -339,22 +344,21 @@ body{
   flex-shrink: 0;
 }
 
-/* PI block on people page: make it match headshots, WITHOUT touching research rows */
-#main .row-image img{
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  display: block;
+.people-section .person-caption{
+  max-width: 100%;
 }
 
-/* IMPORTANT: DO NOT override .row globally (research uses grid).
-   If you need the PI row to be flex, scope it to the people page only.
-   (Uncomment if you still want it—most likely you don't need it now.)
-*/
-/*
-#main .row{
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
+.people-section .person-name{
+  margin: 0 0 0.25rem 0;
 }
+
+.people-section .person-text{
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* IMPORTANT:
+   Do NOT style .row or .row-image globally here.
+   Research uses .row and .row-image and should remain full-width images.
 */
+
