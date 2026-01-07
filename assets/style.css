@@ -275,3 +275,35 @@ body{
   object-fit: cover;
 }
 
+/* PEOPLE page: force headshots to 200x200 */
+.people-grid .person-figure{
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 18px;
+  align-items: start;
+  margin: 0;
+}
+
+.people-grid .person-figure img{
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Remove default figure spacing if any */
+.people-grid .person-figure,
+.people-grid .person-caption{
+  margin: 0;
+}
+
+/* Mobile: stack image above text */
+@media (max-width: 700px){
+  .people-grid .person-figure{
+    grid-template-columns: 1fr;
+  }
+  .people-grid .person-figure img{
+    width: 200px;
+    height: 200px;
+  }
+}
