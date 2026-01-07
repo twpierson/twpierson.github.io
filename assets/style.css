@@ -352,3 +352,17 @@ body{
   line-height: 1.4;
 }
 
+/* Constrain the PI image container */
+.row-image {
+  max-width: 400px;
+  flex: 0 0 400px;
+}
+
+/* Absolute cap on the image itself */
+.profile-photo {
+  width: 400px !important;
+  height: 400px !important;
+  max-width: 100%;
+  object-fit: cover;
+}
+
