@@ -5,7 +5,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>people · pierson lab</title>
   <link rel="stylesheet" href="/assets/style.css?v=3" />
+
+  <!-- Page-specific tweaks (safe to move into /assets/style.css if you prefer) -->
+  <style>
+    /* 1) Force the PI photo to be exactly 400×400 */
+    .profile-photo {
+      width: 400px;
+      height: 400px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* 2) Two people per row for grad + undergrad */
+    .people-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    /* Person card layout: image left, text right */
+    .person-card {
+      margin: 0;
+    }
+
+    .person-figure {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin: 0;
+    }
+
+    .person-figure img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .person-caption {
+      max-width: 100%;
+    }
+
+    .person-name {
+      margin: 0 0 0.25rem 0;
+    }
+
+    .person-text {
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    /* Mobile: one per row + stack image above text for better fit */
+    @media (max-width: 800px) {
+      .people-grid-2 {
+        grid-template-columns: 1fr;
+      }
+      .person-figure {
+        flex-direction: column;
+      }
+      .person-figure img {
+        width: 240px;
+        height: 240px;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <header class="topbar">
     <div class="wrap topbar-inner">
@@ -20,30 +89,32 @@
     </div>
   </header>
 
-  <!-- ROW 1 -->
+  <main class="wrap page" id="main">
+    <h1>people</h1>
+
+    <!-- ROW 1 (PI) -->
     <section class="row">
       <div class="row-image">
         <img
-  src="/assets/people/twp.jpg"
-  alt="Todd Pierson"
-  width="400"
-  height="400"
-  class="profile-photo"
-/>
+          src="/assets/people/twp.jpg"
+          alt="Todd Pierson"
+          width="400"
+          height="400"
+          class="profile-photo"
+        />
       </div>
       <div class="row-text">
         <h3>Dr. Todd Pierson</h3>
         <p>
-         I'm an Associate Professor of Biology in the Department of Ecology, Evolution, and Organismal Biology.
+          I'm an Associate Professor of Biology in the Department of Ecology, Evolution, and Organismal Biology.
         </p>
       </div>
     </section>
-  
-  <main class="wrap page" id="main">
+
     <p class="lead">
-      Interested in joining us? If you are a KSU undergraduate student and are excited about gaining some experience with field or laboratory research 
-      or a prospective graduate student through KSU's Master of Science in Integrative Biology (MSIB) program, please send me an email. 
-      Want to learn more about graduate school in our field? Here and here are some articles with good general advice about how to pursue a 
+      Interested in joining us? If you are a KSU undergraduate student and are excited about gaining some experience with field or laboratory research
+      or a prospective graduate student through KSU's Master of Science in Integrative Biology (MSIB) program, please send me an email.
+      Want to learn more about graduate school in our field? Here and here are some articles with good general advice about how to pursue a
       graduate degree in ecology and evolutionary biology.
     </p>
 
@@ -51,24 +122,28 @@
     <section class="people-section" aria-labelledby="grad">
       <h2 class="section-title" id="grad">graduate students</h2>
 
+      <!-- CHANGED: two-per-row grid + side-by-side cards -->
       <ul class="people-grid people-grid-2" role="list">
         <li class="person-card">
           <figure class="person-figure">
             <img
               src="/assets/people/wunder.jpg"
               alt="Hailey Wunder smiling, seated next to a turtle in an aquarium."
-              width="400" height="400"
+              width="400"
+              height="400"
               loading="lazy"
             />
             <figcaption class="person-caption">
               <h3 class="person-name">Hailey Wunder</h3>
               <p class="person-text">
-                Hailey joined the lab as an MSIB student in Fall 2025 and is 
+                Hailey joined the lab as an MSIB student in Fall 2025 and is
                 studying alternative reproductive tactics in two-lined salamanders.
               </p>
             </figcaption>
           </figure>
         </li>
+
+        <!-- Add more grad students as additional <li class="person-card"> ... </li> -->
       </ul>
     </section>
 
@@ -76,13 +151,15 @@
     <section class="people-section" aria-labelledby="ugrad">
       <h2 class="section-title" id="ugrad">undergraduate students</h2>
 
+      <!-- CHANGED: was people-grid-3; now two-per-row grid + side-by-side cards -->
       <ul class="people-grid people-grid-2" role="list">
         <li class="person-card">
           <figure class="person-figure">
             <img
               src="/assets/people/fer-montes-de-oca-sierra.jpg"
               alt="Fer Montes de Oca Sierra outdoors near water, holding a shell."
-              width="400" height="400"
+              width="400"
+              height="400"
               loading="lazy"
             />
             <figcaption class="person-caption">
@@ -99,7 +176,8 @@
             <img
               src="/assets/people/brian-dodson.jpg"
               alt="Close-up of a red salamander on wet rock."
-              width="400" height="400"
+              width="400"
+              height="400"
               loading="lazy"
             />
             <figcaption class="person-caption">
@@ -116,7 +194,8 @@
             <img
               src="/assets/people/cassie-ellenberger.jpg"
               alt="Cassie Ellenberger standing outdoors near a stream."
-              width="400" height="400"
+              width="400"
+              height="400"
               loading="lazy"
             />
             <figcaption class="person-caption">
@@ -127,6 +206,8 @@
             </figcaption>
           </figure>
         </li>
+
+        <!-- Add more undergrads as additional <li class="person-card"> ... </li> -->
       </ul>
     </section>
 
@@ -134,7 +215,6 @@
     <section class="people-section" aria-labelledby="alumni">
       <h2 class="section-title" id="alumni">alumni</h2>
 
-      <!-- Simple list is easiest to maintain and very accessible -->
       <ul class="alumni-list" role="list">
         <li><strong>Name</strong> — Role (years). Current position (optional).</li>
         <li><strong>Name</strong> — Role (years). Current position (optional).</li>
@@ -147,3 +227,4 @@
   </footer>
 </body>
 </html>
+
