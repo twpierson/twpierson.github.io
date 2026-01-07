@@ -143,3 +143,45 @@ body{
   font-size: 14px;
   opacity:0.9;
 }
+
+/* Alternating research rows */
+.row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: center;
+  margin: 48px 0;
+}
+
+.row-reverse{
+  direction: rtl;
+}
+.row-reverse > *{
+  direction: ltr;
+}
+
+.row-image img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.row-text h2{
+  margin-top: 0;
+  font-size: 22px;
+  text-transform: lowercase;
+}
+
+.row-text p{
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+/* Stack on mobile */
+@media (max-width: 800px){
+  .row{
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
