@@ -6,8 +6,10 @@
   <title>people · pierson lab</title>
   <link rel="stylesheet" href="/assets/style.css?v=3" />
 
+  <!-- Page-specific tweaks (safe to move into /assets/style.css if you prefer) -->
   <style>
-    /* Two people per row for grad + undergrad */
+
+    /* 2) Two people per row for grad + undergrad */
     .people-grid-2 {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -17,13 +19,14 @@
       list-style: none;
     }
 
+    /* Person card layout: image left, text right */
     .person-card {
       margin: 0;
     }
 
     .person-figure {
       display: flex;
-      gap: 1.5rem;
+      gap: 1rem;
       align-items: flex-start;
       margin: 0;
     }
@@ -49,22 +52,7 @@
       line-height: 1.4;
     }
 
-    /* PI: image left, text fills remaining width */
-    .pi-figure {
-      gap: 2rem;
-    }
-
-    .pi-figure img {
-      width: 260px;
-      height: 260px;
-    }
-
-    .pi-figure .person-caption {
-      flex: 1;
-      max-width: none;
-    }
-
-    /* Mobile */
+    /* Mobile: one per row + stack image above text for better fit */
     @media (max-width: 800px) {
       .people-grid-2 {
         grid-template-columns: 1fr;
@@ -81,42 +69,40 @@
 </head>
 
 <body>
-<header class="topbar">
-  <div class="wrap topbar-inner">
-    <div class="brand">
-      <a class="brand-link" href="/">
-        <span class="pierson">pierson</span> <span class="lab">lab</span>
-      </a>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <a class="brand-link" href="/"><span class="pierson">pierson</span> <span class="lab">lab</span></a>
+      </div>
+      <nav class="nav" aria-label="Primary">
+        <a href="/">home</a>
+        <a class="active" href="/people/">people</a>
+        <a href="/research/">research</a>
+      </nav>
     </div>
-    <nav class="nav" aria-label="Primary">
-      <a href="/">home</a>
-      <a class="active" href="/people/">people</a>
-      <a href="/research/">research</a>
-    </nav>
-  </div>
-</header>
+  </header>
 
-<main class="wrap page" id="main">
-
-<!-- PI -->
+  <main class="wrap page" id="main">
+<!-- ROW 1 (PI) -->
 <section class="people-section" aria-labelledby="pi">
-  <h2 id="pi" style="position:absolute; left:-9999px;">principal investigator</h2>
+  <h2 class="section-title" id="pi" style="position:absolute; left:-9999px;">principal investigator</h2>
 
-  <ul role="list" style="list-style:none; padding:0; margin:0;">
+  <ul class="people-grid" role="list" style="list-style:none; padding:0; margin:0;">
     <li class="person-card">
-      <figure class="person-figure pi-figure">
+      <figure class="person-figure">
         <img
           src="/assets/people/twp.jpg"
           alt="Todd Pierson"
+          width="400"
+          height="400"
           loading="eager"
         />
         <figcaption class="person-caption">
           <h3 class="person-name">Dr. Todd Pierson</h3>
           <p class="person-text">
-            I'm an Associate Professor of Biology in the Department of Ecology, Evolution, and Organismal Biology.
-            <a href="https://scholar.google.com/" target="_blank" rel="noopener">
-              Google Scholar
-            </a>
+            I'm an Associate Professor of Biology in the Department of Ecology, Evolution, and Organismal Biology. You can
+            find more information on my <a href="https://www.dropbox.com/scl/fi/mrbtn7tzxouf2eqdwuzbo/CV_Pierson.pdf?rlkey=na5vlfxs3qe62720pn8ule8gy&dl=0" target="_blank" rel="noopener">CV</a>
+            and <a href="https://scholar.google.com/" target="_blank" rel="noopener"> Google Scholar</a>.
           </p>
         </figcaption>
       </figure>
@@ -124,65 +110,144 @@
   </ul>
 </section>
 
-<p class="lead">
-  Interested in joining us? If you are a KSU undergraduate student and are excited about gaining some experience with field or laboratory research
-  or a prospective graduate student through KSU's Master of Science in Integrative Biology (MSIB) program, please send me an email.
-</p>
+    <p class="lead">
+      Interested in joining us? If you are a KSU undergraduate student and are excited about gaining some experience with field or laboratory research
+      or a prospective graduate student through KSU's Master of Science in Integrative Biology (MSIB) program, please send me an email.
+      Want to learn more about graduate school in our field? Here and here are some articles with good general advice about how to pursue a
+      graduate degree in ecology and evolutionary biology.
+    </p>
 
-<!-- Graduate Students -->
-<section class="people-section" aria-labelledby="grad">
-  <h2 id="grad">graduate students</h2>
+    <!-- Graduate Students -->
+    <section class="people-section" aria-labelledby="grad">
+      <h2 class="section-title" id="grad">graduate students</h2>
 
-  <ul class="people-grid people-grid-2" role="list">
-    <li class="person-card">
-      <figure class="person-figure">
-        <img src="/assets/people/wunder.jpg" alt="Hailey Wunder" loading="lazy" />
-        <figcaption class="person-caption">
-          <h3 class="person-name">Hailey Wunder</h3>
-          <p class="person-text">
-            Hailey joined the lab as an MSIB student in Fall 2025 and is studying alternative reproductive tactics in two-lined salamanders.
-          </p>
-        </figcaption>
-      </figure>
-    </li>
-  </ul>
-</section>
+      <!-- CHANGED: two-per-row grid + side-by-side cards -->
+      <ul class="people-grid people-grid-2" role="list">
+        <li class="person-card">
+          <figure class="person-figure">
+            <img
+              src="/assets/people/wunder.jpg"
+              alt="Hailey Wunder smiling, seated next to a turtle in an aquarium."
+              width="400"
+              height="400"
+              loading="lazy"
+            />
+            <figcaption class="person-caption">
+              <h3 class="person-name">Hailey Wunder</h3>
+              <p class="person-text">
+                Hailey joined the lab as an MSIB student in Fall 2025 and is
+                studying alternative reproductive tactics in two-lined salamanders.
+              </p>
+            </figcaption>
+          </figure>
+        </li>
 
-<!-- Undergraduate Students -->
-<section class="people-section" aria-labelledby="ugrad">
-  <h2 id="ugrad">undergraduate students</h2>
+        <!-- Add more grad students as additional <li class="person-card"> ... </li> -->
+      </ul>
+    </section>
 
-  <ul class="people-grid people-grid-2" role="list">
-    <li class="person-card">
-      <figure class="person-figure">
-        <img src="/assets/people/dance.jpg" alt="Alyssa Dance" loading="lazy" />
-        <figcaption class="person-caption">
-          <h3 class="person-name">Alyssa Dance</h3>
-          <p class="person-text">
-            Alyssa joined the lab in Fall 2025 and is studying temporal variation in the frequency of alternative reproductive tactics.
-          </p>
-        </figcaption>
-      </figure>
-    </li>
+    <!-- Undergraduate Students -->
+    <section class="people-section" aria-labelledby="ugrad">
+      <h2 class="section-title" id="ugrad">undergraduate students</h2>
 
-    <li class="person-card">
-      <figure class="person-figure">
-        <img src="/assets/people/dill.jpeg" alt="Sam Dill" loading="lazy" />
-        <figcaption class="person-caption">
-          <h3 class="person-name">Sam Dill</h3>
-          <p class="person-text">
-            Sam joined the lab in Fall 2025 and is building aquaria for studies of reproductive behavior in two-lined salamanders.
-          </p>
-        </figcaption>
-      </figure>
-    </li>
-  </ul>
-</section>
+      <!-- CHANGED: was people-grid-3; now two-per-row grid + side-by-side cards -->
+      <ul class="people-grid people-grid-2" role="list">
+        <li class="person-card">
+          <figure class="person-figure">
+            <img
+              src="/assets/people/dance.jpg"
+              alt="Alyssa Dance smiling."
+              width="400"
+              height="400"
+              loading="lazy"
+            />
+            <figcaption class="person-caption">
+              <h3 class="person-name">Alyssa Dance</h3>
+              <p class="person-text">
+                Alyssa joined the lab in Fall 2025 and is studying temporal variation in the frequency of alternative reproductive tactics.
+              </p>
+            </figcaption>
+          </figure>
+        </li>
 
-</main>
+        <li class="person-card">
+          <figure class="person-figure">
+            <img
+              src="/assets/people/dill.jpeg"
+              alt="Sam Dill holding an enclosue in the shallows of a grassy wetland."
+              width="400"
+              height="400"
+              loading="lazy"
+            />
+            <figcaption class="person-caption">
+              <h3 class="person-name">Sam Dill</h3>
+              <p class="person-text">
+                Sam joined the lab in Fall 2025 and is building aquaria for studies of reproductive behavior in two-lined salamanders.
+              </p>
+            </figcaption>
+          </figure>
+        </li>
 
-<footer class="footer">
-  <div class="wrap">© 2025 by Todd W. Pierson</div>
-</footer>
+        <li class="person-card">
+          <figure class="person-figure">
+            <img
+              src="/assets/people/ellenberger.jpg"
+              alt="Cassie Ellenberger standing outdoors in a stream."
+              width="400"
+              height="400"
+              loading="lazy"
+            />
+            <figcaption class="person-caption">
+              <h3 class="person-name">Cassie Ellenberger</h3>
+              <p class="person-text">
+                Cassie joined the lab in Summer 2025 and has conducted fieldwork, DNA extraction, and qPCR genotyping of alternative reproductive tactics in <em>Eurycea</em>.
+              </p>
+            </figcaption>
+          </figure>
+        </li>
+
+        <!-- Add more undergrads as additional <li class="person-card"> ... </li> -->
+      </ul>
+    </section>
+
+    <!-- Alumni -->
+    <section class="people-section" aria-labelledby="alumni">
+      <h2 class="section-title" id="alumni">alumni</h2>
+
+      <ul class="alumni-list" role="list">
+        <li><strong>Kameryn Kimbrough</strong> — Undergraduate researcher (2025–2025). Environmental DNA methods for detecting rare salamanders.</li>
+        <li><strong>Fer Montes de Oca Sierra</strong> — Undergraduate researcher (2023–2025). Environmental DNA surveys for patch-nosed salamanders. Field surveys for green salamanders. Phylogeography of waterdogs. Spatial variation in the frequency of alternative reproductive tactics.</li>
+        <li><strong>Ken Wang</strong> — High school / undergraduate researcher (2023–2025). Geometric morphometrics of red and spring salamanders. Phylogeography of Mexican toads.</li>
+        <li><strong>Brian Dodson</strong> — Undergraduate researcher (2024–2025). Spatial variation in the frequency of alternative reproductive tactics.</li>
+        <li><strong>Bridgette Popov</strong> — Undergraduate researcher (2023–2024). Reproductive behavior of three-lined salamanders.</li>
+        <li><strong>Aarya Gupta</strong> — High school researcher (2024–2025). Bioinformatic methods for species delimitation.</li>
+        <li><strong>Isabelle Flowers</strong> — Undergraduate researcher (2025–2025). Molecular resistance to insect toxins in a local reptile</li>
+        <li><strong>Cooper Kework</strong> — MSIB graduate student (2023–2025). Spatial and temporal variation in the frequency of alternative reproductive tactics.</li>
+        <li><strong>Ilana Reyes</strong> — Undergraduate researcher (2025–2025). Behavioral and climatological eterminants of coloration in green anoles.</li>
+        <li><strong>Matthew McLendon</strong> — Undergraduate researcher (2023–2024). Environmental DNA detection of alternative reproductive tactics.</li>
+        <li><strong>Lexi Bailey</strong> — Undergraduate researcher (2021–2024). Sexual isolation in two-lined salamanders. Environmental DNA surveys for patch-nosed salamanders. Field surveys for green salamanders.</li>
+        <li><strong>Raquel Gonzalez</strong> — MSIB graduate student (2023–2024; incomplete). Population genomics of Chamberlain's dwarf salamander.</li>
+        <li><strong>Patrick Young</strong> — Undergraduate researcher (2023–2023). Geographic biases in salamander records among citizen science and museum databases.</li>
+        <li><strong>Allison Vessell</strong> — Undergraduate researcher (2022–2023). Salamander body condition and health indexes.</li>
+        <li><strong>Zaynab Massenburg</strong> — Undergraduate researcher (2021–2023). Sexual isolation in two-lined salamanders..</li>
+        <li><strong>Sam Francus</strong> — Undergraduate researcher (2023–2023). Molecular resistance to insect toxins in a local reptile.</li>
+        <li><strong>Leah Rittenburg</strong> — MSIB graduate student (2021–2023). Urbanization and the life history of two-lined salamanders.</li>
+        <li><strong>Yatin Kalki</strong> — MSIB graduate student (2021–2023). Genetic determinants of alternative reproductive tactics in two-lined salamanders.</li>
+        <li><strong>Devan Faddis</strong> — Undergraduate researcher (2021–2022). Sexual isolation in two-lined salamanders. Urban ecology of two-lined salamanders.</li>
+        <li><strong>Jasmine Brown</strong> — Undergraduate researcher (2022–2023). Nanopore sequencing. Alternative reproductive tactics in two-lined salamanders.</li>
+        <li><strong>Emma Downing</strong> — Undergraduate researcher (2021–2022). Nest-site selection in urban salamanders. Environmental DNA surveys for patch-nosed salamanders. Field surveys for green salamanders.</li>
+        <li><strong>Karam Ittayem</strong> — Undergraduate researcher (2021–2022). Environmental DNA detection of chytrid fungi in urban streams.</li>
+        <li><strong>Kelly-Ann McDonald</strong> — Undergraduate researcher (2020–2021). Geometric morphometrics of red and spring salamanders.</li>
+        <li><strong>Tyshiona Brandon</strong> — Undergraduate researcher (2020–2021). Geometric morphometrics of red and spring salamanders.</li>
+        <li><strong>Jadin Cross</strong> — Undergraduate researcher (2020–2021). Phylogeography of slimy salamanders</li>
+        <li><strong>Jasyme Blake-Sinclair</strong> — Undergraduate researcher (2020–2021). Phenology of nesting in two-lined salamanders. Molecular identification of a salamander predator.</li>
+        <li><strong>Tyler Schwartz</strong> — Undergraduate researcher (2020–2021). GIS mapping of river drainages and salamander phylogeography.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">© 2025 by Todd W. Pierson</div>
+  </footer>
 </body>
 </html>
