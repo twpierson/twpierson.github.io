@@ -52,6 +52,12 @@
       line-height: 1.4;
     }
 
+    /* 1) PI only: single-column layout (stack image above text) */
+    .pi-figure {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
     /* Mobile: one per row + stack image above text for better fit */
     @media (max-width: 800px) {
       .people-grid-2 {
@@ -89,7 +95,7 @@
 
   <ul class="people-grid" role="list" style="list-style:none; padding:0; margin:0;">
     <li class="person-card">
-      <figure class="person-figure">
+      <figure class="person-figure pi-figure">
         <img
           src="/assets/people/twp.jpg"
           alt="Todd Pierson"
@@ -101,6 +107,7 @@
           <h3 class="person-name">Dr. Todd Pierson</h3>
           <p class="person-text">
             I'm an Associate Professor of Biology in the Department of Ecology, Evolution, and Organismal Biology.
+            <a href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a>
           </p>
         </figcaption>
       </figure>
@@ -249,4 +256,3 @@
   </footer>
 </body>
 </html>
-
